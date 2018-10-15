@@ -155,7 +155,7 @@ public class MemorizerControllerServlet extends HttpServlet {
 	
 	private void checkTheWord(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
-		request.setAttribute("w", "chuj");
+		request.setAttribute("w", "random");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("game.jsp");
 		dispatcher.forward(request, response);
 	}
