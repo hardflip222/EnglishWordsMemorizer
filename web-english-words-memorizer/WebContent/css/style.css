@@ -1,0 +1,162 @@
+
+body {
+    font-family: "Lucida Console";
+    background-color: #fff;
+}
+
+header
+{
+	background-color: #6495ED;
+	text-align: center;
+	font-size: 26px;
+	padding: 20px;
+	color: #fff;
+	margin:1%;
+	
+}
+
+footer
+{
+
+	clear:both;
+	background-color: #6495ED;
+	text-align: center;
+	font-size: 26px;
+	padding: 20px;
+	color: #fff;
+	margin:1%;
+	
+}
+
+#content
+{
+	height: 500px;	
+	margin:1%;
+}
+#menu
+{
+	 float:left;
+	 width:20%;
+	 height:100%;
+	 background-color: #e1e1e1; 
+	
+}
+
+
+#data
+{
+	  float:left;
+	  margin-left:1%;
+	  width:79%;
+	  height:100%;
+	  overflow: auto;
+	  background-color: #c1c1c1;
+	  	  	 
+}
+
+#search
+{
+	  width:96%;
+	  text-align: center;
+	  font-size: 26px;
+	  padding:2%;
+	  color: #000;	
+	  background-color:  #d1d1d1;  	  
+	 
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; 
+    font-size: 18px; 
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+
+table {   
+	border-collapse:collapse;
+	border-bottom:1px solid gray;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	width:90%;
+	margin: auto;
+	margin-top:2%;
+	margin-bottom:2%;
+}
+ 
+th {
+	border-bottom:1px solid gray;
+	background:none repeat scroll 0 0 #6495ED;
+	padding:10px;
+	color: #FFFFFF;
+}
+
+tr {
+	border-top:1px solid gray;
+	text-align:center;	
+	
+}
+
+td
+{
+	padding:5px;	
+}
+
+
+tr:nth-child(even) {background: #FFFFFF}
+tr:nth-child(odd) {background: #BBBBBB}	
+ 
+ 
+.btn
+{
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 2px; 
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px; 
+	background: #cccccc;
+	text-decoration: none;
+	color : black;
+}
+
+.btn:hover
+{
+	background-color: #555;
+	color:white;
+}
+
+input {
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 16px;
+	text-align: :center;
+}
+
+#newWordForm
+{
+	min-height:500px;
+	background-color: gray;
+	text-align: :center;
+}
+
+
+
