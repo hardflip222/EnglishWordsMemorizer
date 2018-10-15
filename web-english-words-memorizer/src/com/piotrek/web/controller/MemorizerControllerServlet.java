@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 
 import com.piotrek.web.model.DbConnection;
 import com.piotrek.web.model.Word;
+import com.sun.istack.internal.logging.Logger;
 
 /**
  * Servlet implementation class MemorizerControllerServlet
@@ -54,10 +55,11 @@ public class MemorizerControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		 
 		try
 		{
 			String command = request.getParameter("command");
+			
 			
 			if(command==null)
 			{
@@ -72,6 +74,7 @@ public class MemorizerControllerServlet extends HttpServlet {
 				case "GETONE" : getOneWord(request,response); break;
 				case "UPDATE" : updateWord(request,response); break;
 				case "SEARCH" : searchListWords(request,response); break;
+				case "CHECK" : checkTheWord(request,response); break;
 			
 				default: listWords(request, response);
 			}
@@ -85,6 +88,7 @@ public class MemorizerControllerServlet extends HttpServlet {
 	
 	private void listWords(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
+		
 		List<Word> words = dbConnection.getWords();
 		
 		request.setAttribute("wordsList", words);
@@ -146,6 +150,13 @@ public class MemorizerControllerServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list_words.jsp");
 		
+		dispatcher.forward(request, response);
+	}
+	
+	private void checkTheWord(HttpServletRequest request, HttpServletResponse response) throws Exception
+	{
+		request.setAttribute("w", "chuj");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("game.jsp");
 		dispatcher.forward(request, response);
 	}
 	
