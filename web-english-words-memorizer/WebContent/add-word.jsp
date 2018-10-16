@@ -29,11 +29,17 @@ Add new world
             					<input type="submit" value="Add new word">
             
             			</form>
+            			
+            			<a class="btn" href="MemorizerControllerServlet">Go back</a>
+            			
         				</div>
     
             
+            
                
 	</div>
+
+
 
 
 <footer>

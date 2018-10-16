@@ -29,6 +29,8 @@ Update word
             					<input type="submit" value="Update word">
             
             			</form>
+            			
+            			<a class="btn" href="MemorizerControllerServlet">Go back</a>
         				</div>
     
             

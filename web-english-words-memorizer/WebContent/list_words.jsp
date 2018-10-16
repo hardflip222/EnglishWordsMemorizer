@@ -30,10 +30,15 @@
 	<div id = "content">
 	
 		<div id="menu">
+		
+		<c:url var="startGame" value="MemorizerControllerServlet">
+		   	<c:param name = "command" value = "START"/>
+		  
+		   </c:url>
 	
 			<ul>
   				<li><a class="active" href="add-word.jsp">Add new word</a></li>
-  				<li><a href="game.jsp">Check yourself</a></li>
+  				<li><a href="${startGame}">Check yourself</a></li>
 			</ul>
 	
 		</div>

@@ -56,6 +56,7 @@ public class MemorizerControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
+		
 		try
 		{
 			String command = request.getParameter("command");
@@ -74,6 +75,7 @@ public class MemorizerControllerServlet extends HttpServlet {
 				case "GETONE" : getOneWord(request,response); break;
 				case "UPDATE" : updateWord(request,response); break;
 				case "SEARCH" : searchListWords(request,response); break;
+				case "START" : startTheGame(request,response); break;
 				case "CHECK" : checkTheWord(request,response); break;
 			
 				default: listWords(request, response);
@@ -153,12 +155,36 @@ public class MemorizerControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	private void checkTheWord(HttpServletRequest request, HttpServletResponse response) throws Exception
+	private void startTheGame(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
-		request.setAttribute("w", "random");
+		Word randomWord = dbConnection.getRandomWord();
+		request.setAttribute("w", randomWord);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("game.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void checkTheWord(HttpServletRequest request, HttpServletResponse response) throws Exception
+	{
+		String polishWord = request.getParameter("polishWord");
+		String answer = request.getParameter("word");
+		
+		if(polishWord.toLowerCase().equals(answer.toLowerCase()))
+		{
+			request.setAttribute("ans", "GOOD");
+		}
+		else
+		{
+			request.setAttribute("ans", "BAD");
+		}
+		
+		request.setAttribute("correctAnswer", polishWord);
+		request.setAttribute("yourAnswer", answer);
+		
+		startTheGame(request,response);
+		
+	}
+	
+	
 	
 
 }

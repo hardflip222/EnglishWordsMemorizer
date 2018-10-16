@@ -261,5 +261,50 @@ public class DbConnection
 		}
 	}
 	
+	public Word getRandomWord()
+	{
+		String sql = "Select max(id) AS MAX FROM WORD";
+		Word word = null;
+		int max = 0;
+		try {
+			statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				max = rs.getInt("MAX");
+			}
+			statement.close();
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		 sql  = "Select * from WORD where id = ?";
+		while(word == null)
+		{
+		 
+			int rand = (int)(Math.random()*max)+1;
+			
+		  try {
+			preparedStatement = conn.prepareStatement(sql);
+		    preparedStatement.setInt(1, rand);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next())
+			{
+				word = new Word(rs.getInt("id"),rs.getString("english_word"),rs.getString("polish_word"));
+			}
+		
+		  	} catch (SQLException e) {
+		  		// TODO Auto-generated catch block
+		  		e.printStackTrace();
+		  	}
+		}
+		  return word;
+		 
+	}
+	
 
 }
